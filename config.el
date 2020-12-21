@@ -57,3 +57,34 @@
 
 ;; Maximize when start
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
+
+;;  (set-company-backend! 'sh-mode nil) ; unsets backends for sh-mode
+(set-company-backend! '(c-mode
+                        c++-mode
+                        ess-mode
+                        haskell-mode
+                        ;;emacs-lisp-mode
+                        lisp-mode
+                        sh-mode
+                        php-mode
+                        python-mode
+                        go-mode
+                        ruby-mode
+                        rust-mode
+                        js-mode
+                        css-mode
+                        org-mode
+                        web-mode
+                        )
+  '(:separate company-dabbrev-code company-keywords))
+
+(set-company-backend! 'prog-mode
+  '(:seperate company-dabbrev))
+
+(setq +lsp-company-backends '(company-capf
+                             :with company-yasnippet
+                             company-tabnine
+                             :separate))
+(after! company
+  (setq company-idle-delay 0
+        company-show-numbers t))
