@@ -88,3 +88,15 @@
 (after! company
   (setq company-idle-delay 0
         company-show-numbers t))
+
+;; dap config
+(after! dap-mode
+  (dap-register-debug-template
+  "Python :: Odoo-Hg"
+        (list :type "python"
+                :args (list "-c" "/Users/jyd/workspace/feilong/hg.config")
+                :cwd nil
+                :module nil
+                :program "/Users/jyd/workspace/feilong/odoo/odoo-bin"
+                :request "launch"
+                :name "Python :: Odoo-Hg")))
