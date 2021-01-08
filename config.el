@@ -82,21 +82,38 @@
   '(:seperate company-dabbrev))
 
 (setq +lsp-company-backends '(company-capf
-                             :with company-yasnippet
-                             company-tabnine
-                             :separate))
+                              :with company-yasnippet
+                              company-tabnine
+                              :separate))
 (after! company
   (setq company-idle-delay 0
-        company-show-numbers t))
+        company-show-numbers t
+        company-minimum-prefix-length 2))
 
 ;; dap config
 (after! dap-mode
   (dap-register-debug-template
-  "Python :: Odoo-Hg"
-        (list :type "python"
-                :args (list "-c" "/Users/jyd/workspace/feilong/hg.config")
-                :cwd nil
-                :module nil
-                :program "/Users/jyd/workspace/feilong/odoo/odoo-bin"
-                :request "launch"
-                :name "Python :: Odoo-Hg")))
+   "Python :: Odoo-Hg"
+   (list :type "python"
+         :args (list "-c" "/Users/jyd/workspace/feilong/hg.config")
+         :cwd nil
+         :module nil
+         :program "/Users/jyd/workspace/feilong/odoo/odoo-bin"
+         :request "launch"
+         :name "Python :: Odoo-Hg")))
+
+;; tidy add uft8
+;; (after! format-all
+;;   (set-formatter! 'html-tidy
+;;     '("tidy" "-q" "-indent" "-utf8"
+;;       "--tidy-mark" "no"
+;;       "--wrap" "0"
+;;       "--drop-empty-elements" "no"
+;;       ("--show-body-only" "%s" (if +format-region-p "true" "auto"))
+;;       ("--indent-spaces" "%d" tab-width)
+;;       ("--indent-with-tabs" "%s" (if indent-tabs-mode "yes" "no"))
+;;       ("-xml" (memq major-mode '(nxml-mode xml-mode))))
+;;     :ok-statuses '(0 1)))
+
+
+(setq-hook! 'nxml-mode-hook +format-with :none)
