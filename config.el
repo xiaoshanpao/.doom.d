@@ -117,3 +117,14 @@
 
 
 (setq-hook! 'nxml-mode-hook +format-with :none)
+
+;; lsp-python-ms
+;; (add-hook 'hack-local-variables-hook
+;; 	       (lambda ()
+;; 		 (when (derived-mode-p 'python-mode)
+;; 		   (require 'lsp-python-ms)
+;; 		   (lsp)))) ; or lsp-deferred
+
+;; (put 'lsp-python-ms-python-executable 'safe-local-variable (lambda (_) t))
+;;put follow in .dir-locals.el
+;;((python-mode . ((lsp-python-ms-python-executable . "/usr/bin/python"))))
