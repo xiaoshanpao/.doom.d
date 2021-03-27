@@ -95,10 +95,10 @@
   (dap-register-debug-template
    "Python :: Odoo-Hg"
    (list :type "python"
-         :args (list "-c" "/Users/jyd/workspace/feilong/hg.config")
+         :args (list "-c" "/home/fanhe/workspace/odoo14/odoorc")
          :cwd nil
          :module nil
-         :program "/Users/jyd/workspace/feilong/odoo/odoo-bin"
+         :program "/home/fanhe/workspace/odoo14/odoo/odoo-bin"
          :request "launch"
          :name "Python :: Odoo-Hg")))
 
