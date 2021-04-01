@@ -128,3 +128,5 @@
 ;; (put 'lsp-python-ms-python-executable 'safe-local-variable (lambda (_) t))
 ;;put follow in .dir-locals.el
 ;;((python-mode . ((lsp-python-ms-python-executable . "/usr/bin/python"))))
+(after! format
+  (set-formatter! 'black "black -S -q -"))
